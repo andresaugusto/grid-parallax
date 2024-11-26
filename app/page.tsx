@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import styles from './page.module.scss'
 import Image from 'next/image';
 import Lenis from 'lenis'
-import { useTransform, useScroll, motion } from 'framer-motion';
+import { useTransform, useScroll, motion, MotionValue, CustomValueType } from 'framer-motion';
 
 const image = "https://andresaugusto-aa-media.s3.amazonaws.com/images/aa-demo-wide-1080p-filtered-poster.png"
 // const image = "1.jpg"
@@ -41,7 +41,7 @@ export default function Home() {
   useEffect( () => {
     const lenis = new Lenis()
 
-    const raf = (time: any) => {
+    const raf = (time: number) => {
       lenis.raf(time)
       requestAnimationFrame(raf)
     }
@@ -75,7 +75,7 @@ export default function Home() {
 
 interface ColumnProps {
   images: string[],
-  y: any
+  y: string | number | MotionValue<number> | CustomValueType | MotionValue<string> | MotionValue<any> | undefined
 }
 
 const Column = ({images, y}: ColumnProps) => {
