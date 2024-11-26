@@ -75,7 +75,7 @@ export default function Home() {
 
 interface ColumnProps {
   images: string[],
-  y: string | number | MotionValue<number> | CustomValueType | MotionValue<string> | MotionValue<any> | undefined
+  y: string | number | MotionValue<number> | CustomValueType | MotionValue<string> | undefined
 }
 
 const Column = ({images, y}: ColumnProps) => {
